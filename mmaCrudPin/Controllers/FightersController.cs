@@ -169,7 +169,7 @@ namespace mmaCrudPin.Controllers
         }
 
         //Search
-        public IActionResult Search(string name, mmaFighter mm, string mma_name, bool exist)
+        public IActionResult Search(string name, mmaFighter mm, string mma_name, bool exist=true)
         {
             //Linq method syntax
             var rez = _context.mmaFighters.Where(m => m.deleted == null && m.figtherName.StartsWith(name)).ToList();
@@ -184,14 +184,20 @@ namespace mmaCrudPin.Controllers
                 {
                     ViewBag.Message = "Traženi borac je pronađen.";
                 }
-                if(rez.Count == 0)
+                if(!exist || rez.Count == 0)
                 {
-                    ViewBag.Message = "Traženog borca nismo pronašli.";
+                    ViewBag.Message = "<b>Traženog borca nismo pronašli.</b>";
                 }
+
                 ViewBag.fighterName = name;
                 return View("Index", rez);
+                
             }
-           
+            else
+            {
+                if (rez.Count == 0)
+                    ViewBag.Message = "<b>Traženog borca nismo pronašli.</b>";
+            }
             return View("Index", rez);
         }
     }

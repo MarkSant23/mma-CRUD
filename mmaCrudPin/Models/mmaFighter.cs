@@ -45,16 +45,18 @@ namespace mmaCrudPin.Models
         [Display(Name = "Obrisan")]
         public DateTime? deleted { get; set; }
 
+        [Display(Name = "Starost borca")]
+        public string age { get; set; }
+
+        [Display(Name = "Omjer [W-L-D-NC]")]
+        public string mma_record { get; set; }
+
         [Display(Name = "Vrijednost u $")]
         [Required(ErrorMessage = "Potrebno unijeti novcanu vrijednost")]
         [RegularExpression(@"\d+(,\d{1,2}|\.(\d{1,4}))?", ErrorMessage = "Unesi valjanu vrijednost novca")]
+        #nullable enable
         public string? worth_salary { get; set; }
 
-        [Display(Name ="Starost borca")]
-        public string age { get; set; }
-
-        [Display(Name ="Omjer [W-L-D-NC]")]
-        public string mma_record { get; set; }
 
     }
 }
