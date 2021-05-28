@@ -1,7 +1,7 @@
 # MMA App 
 
 ### About the app: 
- *Web app for Create, Read, Update and Delete mma fighters*
+ *Web app for Create, Read, Update and Delete MMA fighters*
 
 ### Technologies: 
 * C#
